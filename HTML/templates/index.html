@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Directory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Tools Directory</h1>
+
+        <div class="add-tool-section">
+            <button class="add-button" id="show-add-tool-form" onclick="showAddToolForm()">+ Add New Tool</button>
+
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="search-bar" placeholder="Search tools by name, tags, or description..." oninput="searchTools()">
+        </div>
+        <ul id="tools-list">
+            {% for tool in tools %}
+                <li data-tags="{{ tool['tags'] }}" data-user-added="{{ 'true' if tool['user_added'] else 'false' }}">
+                    {% if tool['user_added'] %}
+<button class="edit-button"
+        data-name="{{ tool['name'] }}"
+        data-description="{{ tool['description'] }}"
+        data-link="{{ tool['link'] }}"
+        data-tags="{{ tool['tags'] }}"
+        onclick="prepareEditTool(this)">
+    <span class="edit-icon">✏️</span>
+</button>
+{% endif %}
+
+                
+                    <span class="tool-name">{{ tool['name'] }}</span>
+                    <p class="description">{{ tool['description'] }}</p>
+                    <p class="tags">Tags: {{ tool['tags'] }}</p>
+                    <a href="{{ tool['link'] }}" class="link" target="_blank">Visit {{ tool['name'] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        
+        
+
+        <!-- Add Tool Form -->
+        <div class="add-tool-form" id="add-tool-form">
+            <h2>Add a New Tool</h2>
+            <form action="/add" method="POST">
+                <input type="text" name="tool-name" placeholder="Tool Name" required>
+                <textarea name="tool-description" placeholder="Tool Description" required></textarea>
+                <input type="text" name="tool-link" placeholder="Tool Website Link" required>
+                <input type="text" name="tool-tags" placeholder="Tags (comma-separated)" required>
+                <button type="submit">Add Tool</button>
+            </form>
+        </div>
+
+        <!-- Edit Tool Form -->
+        <div class="edit-tool-form" id="edit-tool-form" style="display:none;">
+            <h2>Edit Tool</h2>
+            <form action="/edit" method="POST">
+                <input type="hidden" name="old-name" id="edit-old-name">
+                <input type="text" name="tool-name" id="edit-tool-name" placeholder="Tool Name" required>
+                <textarea name="tool-description" id="edit-tool-description" placeholder="Tool Description" required></textarea>
+                <input type="text" name="tool-link" id="edit-tool-link" placeholder="Tool Website Link" required>
+                <input type="text" name="tool-tags" id="edit-tool-tags" placeholder="Tags (comma-separated)" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

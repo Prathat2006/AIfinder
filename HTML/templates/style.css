@@ -1,0 +1,119 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            position: relative;
+        }
+        .tool-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .description {
+            margin-top: 5px;
+            color: #555;
+        }
+        .tags {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        .link {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .edit-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+        .edit-button:hover {
+            color: #0056b3;
+        }
+        .edit-icon {
+            font-size: 1.2em;
+            color: #007bff;
+        }
+        .add-button, .edit-button-form {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-button:hover, .edit-button-form:hover {
+            background-color: #0056b3;
+        }
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .add-tool-form, .edit-tool-form {
+            display: none;
+            margin-top: 20px;
+        }
+        .add-tool-form input, .add-tool-form textarea,
+        .edit-tool-form input, .edit-tool-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .add-tool-form button, .edit-tool-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-tool-form button:hover, .edit-tool-form button:hover {
+            background-color: #0056b3;
+        }
